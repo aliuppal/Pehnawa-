@@ -19,6 +19,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Pehnawa uses your camera to photograph you and your clothes for outfit ideas and try-on.",
+          "photosPermission": "Pehnawa uses your photos so you can add clothes and brand pictures to try on."
+        }
+      ],
+      "expo-font"
+    ]
   }
 }
