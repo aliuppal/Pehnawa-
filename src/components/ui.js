@@ -2,7 +2,8 @@ import React from 'react';
 import { ActivityIndicator, Image, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { color, font, radius, space } from '../theme';
-import { CATEGORIES, colorInfo } from '../data/catalog';
+import { useStore } from '../store';
+import GarmentIllustration from './GarmentIllustration';
 
 export function ScreenHeader({ eyebrow, title, right }) {
   return (
@@ -96,16 +97,15 @@ export function GenderSwitch({ value, onChange }) {
   );
 }
 
-/** Photo of a garment, or a colour swatch with its category icon when there is no photo. */
+/** Photo of a garment, or a drawn illustration of it when there is no photo. */
 export function GarmentArt({ item, size = 96, rounded = radius.md }) {
+  const store = useStore();
   const box = { width: size, height: size * 1.25, borderRadius: rounded };
   if (item.uri) return <Image source={{ uri: item.uri }} style={[box, { backgroundColor: color.sunk }]} resizeMode="cover" />;
-  const c = colorInfo(item.color);
-  const light = ['white', 'beige', 'sky', 'yellow', 'pink', 'lavender', 'print'].includes(c.key);
-  const icon = CATEGORIES.find((x) => x.key === item.category)?.icon ?? 'square';
+  const darkGarment = ['white', 'beige'].includes(item.color);
   return (
-    <View style={[box, { backgroundColor: c.hex, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: color.line }]}>
-      <Feather name={icon} size={size * 0.28} color={light ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.8)'} />
+    <View style={[box, s.artTile, darkGarment && { backgroundColor: color.sunk }]}>
+      <GarmentIllustration item={item} gender={item.gender ?? store?.state.profile.gender} width={size * 0.86} />
     </View>
   );
 }
@@ -177,6 +177,7 @@ export const s = StyleSheet.create({
   segItem: { paddingHorizontal: 14, minHeight: 34, justifyContent: 'center', borderRadius: radius.pill },
   segOn: { backgroundColor: color.surface, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 4, shadowOffset: { width: 0, height: 1 }, elevation: 1 },
   segText: { fontFamily: font.body, fontSize: 14, fontWeight: '600', color: color.muted },
+  artTile: { backgroundColor: color.surface, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: color.line, overflow: 'hidden' },
   empty: { alignItems: 'center', paddingHorizontal: space.xl, paddingVertical: space.xxl },
   emptyIcon: { width: 60, height: 60, borderRadius: 30, backgroundColor: color.accentSoft, alignItems: 'center', justifyContent: 'center', marginBottom: space.lg },
   emptyTitle: { fontFamily: font.display, fontSize: 22, color: color.ink, textAlign: 'center' },

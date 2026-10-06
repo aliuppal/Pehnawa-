@@ -3,7 +3,7 @@ import { Animated, Image, PanResponder, Pressable, ScrollView, StyleSheet, Text,
 import { Feather } from '@expo/vector-icons';
 import { color, font, radius, space } from '../theme';
 import { newId, useStore } from '../store';
-import { colorInfo } from '../data/catalog';
+import GarmentIllustration from '../components/GarmentIllustration';
 import { persistImage, pickImage } from '../media';
 import { aiTryOn, canAiTryOn } from '../tryon';
 import { Button, EmptyState, GarmentArt, Notice, ScreenHeader } from '../components/ui';
@@ -172,6 +172,7 @@ export default function TryOnScreen({ goTo }) {
                 stageW={stageW}
                 stageH={stageH}
                 active={l.key === activeKey}
+                gender={profile.gender}
                 onSelect={() => setActiveKey(l.key)}
                 onDrag={setDragging}
               />
@@ -278,7 +279,7 @@ function IconBtn({ icon, label, onPress }) {
   );
 }
 
-function DraggableLayer({ layer, stageW, stageH, active, onSelect, onDrag }) {
+function DraggableLayer({ layer, stageW, stageH, active, onSelect, onDrag, gender }) {
   const [fx, fy] = START[layer.item.category] ?? [0.2, 0.25];
   const pan = useRef(new Animated.ValueXY({ x: fx * stageW, y: fy * stageH })).current;
   const cb = useRef({ onSelect, onDrag });
@@ -309,11 +310,10 @@ function DraggableLayer({ layer, stageW, stageH, active, onSelect, onDrag }) {
   );
 
   const w = stageW * 0.6 * layer.scale;
-  const h = w * 1.25;
   const body = layer.item.uri ? (
-    <Image source={{ uri: layer.item.uri }} style={{ width: w, height: h }} resizeMode="contain" />
+    <Image source={{ uri: layer.item.uri }} style={{ width: w, height: w * 1.25 }} resizeMode="contain" />
   ) : (
-    <View style={{ width: w, height: h, borderRadius: radius.md, backgroundColor: colorInfo(layer.item.color).hex }} />
+    <GarmentIllustration item={layer.item} gender={gender} width={w} />
   );
 
   return (

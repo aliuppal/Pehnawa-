@@ -98,3 +98,158 @@ export const BRANDS = [
 ];
 
 export const brandsFor = (gender) => BRANDS.filter((b) => b.gender === gender);
+
+// ── Sample pieces ────────────────────────────────────
+// Illustrative pieces in the spirit of each brand's range, not real catalogue items.
+// They use the same fields as closet items, so they can be tried on and added as-is.
+const GOLD = '#C9A24A';
+const p = (name, category, color, style, warmth, extra = {}) => ({ name, category, color, style, warmth, ...extra });
+
+const PIECES = {
+  'khaadi-w': [
+    p('Printed lawn kurta', 'top', 'mustard', 'eastern', 'light', { shape: 'kameez', print: true }),
+    p('Straight cotton trousers', 'bottom', 'white', 'eastern', 'light', { shape: 'trousers' }),
+    p('Khaddar 3-piece', 'full', 'maroon', 'eastern', 'warm', { shape: 'threepiece' }),
+  ],
+  'gulahmed-w': [
+    p('Summer lawn 3-piece', 'full', 'sky', 'eastern', 'light', { shape: 'threepiece', print: true }),
+    p('Embroidered chiffon suit', 'full', 'teal', 'party', 'mid', { shape: 'threepiece', accent: GOLD }),
+    p('Printed lawn dupatta', 'extra', 'print', 'eastern', 'light', { shape: 'dupatta' }),
+  ],
+  'sapphire-w': [
+    p('Pret kurta', 'top', 'green', 'eastern', 'light', { shape: 'kameez' }),
+    p('Linen co-ord set', 'full', 'beige', 'casual', 'mid', { shape: 'twopiece' }),
+    p('Straight trousers', 'bottom', 'black', 'formal', 'mid', { shape: 'trousers' }),
+  ],
+  'alkaram-w': [
+    p('Printed lawn two-piece', 'full', 'pink', 'eastern', 'light', { shape: 'twopiece', print: true }),
+    p('Karandi 3-piece', 'full', 'brown', 'eastern', 'warm', { shape: 'threepiece' }),
+    p('Cambric shalwar', 'bottom', 'white', 'eastern', 'light', { shape: 'shalwar' }),
+  ],
+  'limelight-w': [
+    p('Printed short kurti', 'top', 'orange', 'casual', 'light', { shape: 'kameez', print: true }),
+    p('Relaxed shirt', 'top', 'lavender', 'casual', 'light', { shape: 'shirt' }),
+    p('Culottes', 'bottom', 'beige', 'casual', 'light', { shape: 'palazzo' }),
+  ],
+  'nishat-w': [
+    p('Embroidered lawn 3-piece', 'full', 'lavender', 'eastern', 'light', { shape: 'threepiece', accent: GOLD }),
+    p('Raw silk festive suit', 'full', 'mustard', 'party', 'mid', { shape: 'threepiece', accent: GOLD }),
+    p('Velvet shawl', 'layer', 'maroon', 'party', 'warm', { shape: 'shawl', accent: GOLD }),
+  ],
+  'sanasafinaz-w': [
+    p('Luxury lawn 3-piece', 'full', 'teal', 'eastern', 'light', { shape: 'threepiece', print: true }),
+    p('Silk dupatta', 'extra', 'pink', 'party', 'light', { shape: 'dupatta', accent: GOLD }),
+    p('Muzlin festive kurta', 'top', 'purple', 'party', 'mid', { shape: 'kameez', accent: GOLD }),
+  ],
+  'mariab-w': [
+    p('Embroidered mehndi formal', 'full', 'yellow', 'party', 'mid', { shape: 'threepiece', accent: '#2F7D4F' }),
+    p('Festive gharara set', 'full', 'green', 'party', 'mid', { shape: 'dress', accent: GOLD }),
+    p('Printed everyday kurta', 'top', 'print', 'casual', 'light', { shape: 'kameez' }),
+  ],
+  'agha-noor-w': [
+    p('Chikankari kurta', 'top', 'white', 'eastern', 'light', { shape: 'kameez', accent: '#B9A7D9' }),
+    p('Festive gharara', 'full', 'pink', 'party', 'mid', { shape: 'dress', accent: GOLD }),
+    p('Organza dupatta', 'extra', 'mustard', 'party', 'light', { shape: 'dupatta' }),
+  ],
+  'asimjofa-w': [
+    p('Luxury chiffon formal', 'full', 'maroon', 'party', 'mid', { shape: 'threepiece', accent: GOLD }),
+    p('Embellished lehenga', 'full', 'red', 'party', 'mid', { shape: 'dress', accent: GOLD }),
+    p('Embellished khussa', 'shoes', 'mustard', 'party', 'mid', { shape: 'khussa', accent: '#F7F7F2' }),
+  ],
+  'beechtree-w': [
+    p('Printed co-ord set', 'full', 'print', 'casual', 'light', { shape: 'twopiece' }),
+    p('Basic tee', 'top', 'white', 'casual', 'light', { shape: 'tee' }),
+    p('Wide-leg trousers', 'bottom', 'olive', 'casual', 'mid', { shape: 'palazzo' }),
+  ],
+  'generation-w': [
+    p('Block-print kurta', 'top', 'blue', 'eastern', 'light', { shape: 'kameez', print: true }),
+    p('Printed shalwar', 'bottom', 'print', 'eastern', 'light', { shape: 'shalwar' }),
+    p('Cotton dupatta', 'extra', 'red', 'eastern', 'light', { shape: 'dupatta' }),
+  ],
+  'bonanza-w': [
+    p('Two-piece pret', 'full', 'sky', 'eastern', 'light', { shape: 'twopiece' }),
+    p('Woolen shawl', 'layer', 'grey', 'eastern', 'warm', { shape: 'shawl' }),
+    p('Khaddar kurta', 'top', 'olive', 'eastern', 'warm', { shape: 'kameez' }),
+  ],
+  'outfitters-w': [
+    p('Mom jeans', 'bottom', 'blue', 'casual', 'mid', { shape: 'jeans' }),
+    p('Oversized tee', 'top', 'black', 'casual', 'light', { shape: 'tee' }),
+    p('Knit cardigan', 'layer', 'beige', 'casual', 'warm', { shape: 'jacket' }),
+  ],
+  'jdot-w': [
+    p('Printed lawn 3-piece', 'full', 'green', 'eastern', 'light', { shape: 'threepiece', print: true }),
+    p('Embroidered Eid kurta', 'top', 'white', 'eastern', 'light', { shape: 'kameez', accent: GOLD }),
+    p('Classic khussa', 'shoes', 'mustard', 'eastern', 'mid', { shape: 'khussa' }),
+  ],
+  'jdot-m': [
+    p('Wash-n-wear kameez shalwar', 'full', 'white', 'eastern', 'light', { shape: 'suit' }),
+    p('Jummah kurta', 'top', 'sky', 'eastern', 'light', { shape: 'kurta' }),
+    p('Black waistcoat', 'layer', 'black', 'eastern', 'mid', { shape: 'waistcoat' }),
+  ],
+  'bonanza-m': [
+    p('Cotton kameez shalwar', 'full', 'beige', 'eastern', 'light', { shape: 'suit' }),
+    p('V-neck sweater', 'layer', 'navy', 'casual', 'warm', { shape: 'sweater' }),
+    p('Collared shirt', 'top', 'sky', 'formal', 'light', { shape: 'shirt' }),
+  ],
+  'edenrobe-m': [
+    p('Cotton kurta', 'top', 'maroon', 'eastern', 'light', { shape: 'kurta' }),
+    p('Straight pajama', 'bottom', 'white', 'eastern', 'light', { shape: 'trousers' }),
+    p('Pique polo', 'top', 'olive', 'casual', 'light', { shape: 'polo' }),
+  ],
+  'diners-m': [
+    p('Suit blazer', 'layer', 'navy', 'formal', 'mid', { shape: 'jacket' }),
+    p('Dress shirt', 'top', 'white', 'formal', 'light', { shape: 'shirt' }),
+    p('Formal trousers', 'bottom', 'grey', 'formal', 'mid', { shape: 'trousers' }),
+  ],
+  'charcoal-m': [
+    p('Textured blazer', 'layer', 'grey', 'formal', 'mid', { shape: 'jacket' }),
+    p('Slim formal shirt', 'top', 'sky', 'formal', 'light', { shape: 'shirt' }),
+    p('Chinos', 'bottom', 'beige', 'casual', 'mid', { shape: 'trousers' }),
+  ],
+  'outfitters-m': [
+    p('Slim jeans', 'bottom', 'navy', 'casual', 'mid', { shape: 'jeans' }),
+    p('Graphic tee', 'top', 'white', 'casual', 'light', { shape: 'tee', print: true }),
+    p('Pullover hoodie', 'layer', 'grey', 'casual', 'warm', { shape: 'sweater' }),
+  ],
+  'cougar-m': [
+    p('Denim jacket', 'layer', 'blue', 'casual', 'warm', { shape: 'jacket' }),
+    p('Henley tee', 'top', 'olive', 'casual', 'light', { shape: 'tee' }),
+    p('Brown chinos', 'bottom', 'brown', 'casual', 'mid', { shape: 'trousers' }),
+  ],
+  'breakout-m': [
+    p('Oversized tee', 'top', 'black', 'casual', 'light', { shape: 'tee' }),
+    p('Cargo pants', 'bottom', 'olive', 'casual', 'mid', { shape: 'trousers' }),
+    p('Bomber jacket', 'layer', 'navy', 'casual', 'warm', { shape: 'jacket' }),
+  ],
+  'engine-m': [
+    p('Basic polo', 'top', 'red', 'casual', 'light', { shape: 'polo' }),
+    p('Printed shirt', 'top', 'print', 'casual', 'light', { shape: 'shirt' }),
+    p('Canvas sneakers', 'shoes', 'white', 'casual', 'mid', { shape: 'sneaker' }),
+  ],
+  'uniworth-m': [
+    p('White formal shirt', 'top', 'white', 'formal', 'light', { shape: 'shirt' }),
+    p('Dress trousers', 'bottom', 'navy', 'formal', 'mid', { shape: 'trousers' }),
+    p('Leather oxfords', 'shoes', 'brown', 'formal', 'mid', { shape: 'oxford' }),
+  ],
+  'gulahmed-m': [
+    p('Wash-n-wear suit', 'full', 'grey', 'eastern', 'light', { shape: 'suit' }),
+    p('Cream Eid kurta', 'top', 'beige', 'eastern', 'light', { shape: 'kurta', accent: GOLD }),
+    p('Peshawari chappal', 'shoes', 'brown', 'eastern', 'mid', { shape: 'chappal' }),
+  ],
+  'amiradnan-m': [
+    p('Embroidered sherwani', 'full', 'beige', 'party', 'warm', { shape: 'sherwani', accent: GOLD }),
+    p('Prince coat', 'layer', 'black', 'party', 'warm', { shape: 'sherwani', accent: GOLD }),
+    p('Wedding khussa', 'shoes', 'mustard', 'party', 'mid', { shape: 'khussa', accent: '#F7F7F2' }),
+  ],
+};
+
+/** Sample pieces for a brand, ready to try on or add to the closet. */
+export const piecesFor = (brand) =>
+  (PIECES[brand.id] ?? []).map((piece, i) => ({
+    ...piece,
+    id: `${brand.id}-${i}`,
+    sourceId: `${brand.id}-${i}`,
+    brand: brand.name,
+    gender: brand.gender,
+    uri: null,
+  }));
